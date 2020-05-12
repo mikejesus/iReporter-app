@@ -195,6 +195,47 @@ button:hover {
 }
 
 
+/* Sign in */
+
+#signin {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    height: 80vh;
+}
+
+#signin h1 {
+    color: #555555;
+    margin-bottom: 10px;
+}
+
+#signin input[type="email"],
+#signin input[type="password"] {
+    width: 350px;
+    height: 45px;
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-family: "PT Sans", sans-serif;
+    outline: none;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(204, 204, 204);
+    border-image: initial;
+    border-radius: 4px;
+    padding: 0px 10px;
+}
+
+#signin button {
+    width: 250px;
+    background-color: rgb(53, 45, 218);
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
+
 /* footer */
 
 footer {
