@@ -5,10 +5,10 @@ This app provide a plaftform where a citizen can raise red flags on corruption c
 
 Also, a citizen can bring areas of needs to government's notice for intervention purposes. 
 
-#Language
+# Language
 HTML, CSS, Javascript, Node.js, Postgres
 
-#Tools
+# Tools
 Git/Github, Travis CI, Coveralls, Heroku
 
 
