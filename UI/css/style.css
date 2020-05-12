@@ -99,6 +99,7 @@ header #brand h1 a {
     height: 40vh;
     display: flex;
     align-items: center;
+    margin-bottom: 20px;
 }
 
 #about h1 {
