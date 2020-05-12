@@ -153,6 +153,48 @@ header #brand h1 a {
 }
 
 
+/* Sign Up */
+
+#signup {
+    text-align: center;
+    height: 80vh;
+}
+
+#signup h1 {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    color: #555555;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="phone"],
+input[type="password"] {
+    width: 350px;
+    height: 45px;
+    margin-bottom: 5px;
+    outline: none;
+    font-size: 16px;
+    font-family: "PT Sans", sans-serif;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    padding: 0 10px;
+}
+
+button {
+    padding: 15px;
+    width: 250px;
+    background-color: #352dda;
+    color: #ffffff;
+    border-radius: 10px 10px;
+    font-size: 15px;
+}
+
+button:hover {
+    color: #cccccc;
+}
+
+
 /* footer */
 
 footer {
