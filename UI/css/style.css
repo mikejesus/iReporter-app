@@ -11,6 +11,7 @@ body {
     background-color: #ffffff;
     /* height: 100vh; */
     line-height: 1.5;
+    position: relative;
 }
 
 .container {
@@ -230,6 +231,53 @@ button:hover {
     background-color: rgb(53, 45, 218);
     color: rgb(255, 255, 255);
     font-size: 16px;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
+
+/* Red Flag */
+
+#red-flag {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    height: 80vh;
+}
+
+#red-flag h1 {
+    color: #555555;
+    margin-bottom: 10px;
+}
+
+#red-flag input[type="text"],
+textarea,
+#red-flag input[type="date"],
+#red-flag input[type="email"],
+#red-flag input[type="password"] {
+    width: 350px;
+    height: 40px;
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-family: "PT Sans", sans-serif;
+    outline: none;
+    border: 1px solid rgb(204, 204, 204);
+    border-image: initial;
+    border-radius: 4px;
+    padding: 0px 10px;
+}
+
+#red-flag textarea {
+    height: 80px;
+    padding-top: 5px;
+}
+
+#red-flag button {
+    width: 350px;
+    background-color: rgb(53, 45, 218);
+    color: rgb(255, 255, 255);
+    font-size: 18px;
     padding: 15px;
     border-radius: 10px;
     margin-top: 5px;
