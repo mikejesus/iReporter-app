@@ -284,6 +284,53 @@ textarea,
 }
 
 
+/* Intervention */
+
+#intervention {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    height: 80vh;
+}
+
+#intervention h1 {
+    color: #555555;
+    margin-bottom: 10px;
+}
+
+#intervention input[type="text"],
+textarea,
+#intervention input[type="date"],
+#intervention input[type="email"],
+#intervention input[type="password"] {
+    width: 350px;
+    height: 40px;
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-family: "PT Sans", sans-serif;
+    outline: none;
+    border: 1px solid rgb(204, 204, 204);
+    border-image: initial;
+    border-radius: 4px;
+    padding: 0px 10px;
+}
+
+#intervention textarea {
+    height: 80px;
+    padding-top: 5px;
+}
+
+#intervention button {
+    width: 350px;
+    background-color: rgb(53, 45, 218);
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
+
 /* footer */
 
 footer {
