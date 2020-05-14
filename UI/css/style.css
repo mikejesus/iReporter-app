@@ -255,7 +255,8 @@ button:hover {
 textarea,
 #red-flag input[type="date"],
 #red-flag input[type="email"],
-#red-flag input[type="password"] {
+#red-flag input[type="password"],
+#red-flag file {
     width: 350px;
     height: 40px;
     margin-bottom: 5px;
@@ -273,6 +274,10 @@ textarea,
     padding-top: 5px;
 }
 
+#red-flag label {
+    color: #555555;
+}
+
 #red-flag button {
     width: 350px;
     background-color: rgb(53, 45, 218);
@@ -281,6 +286,11 @@ textarea,
     padding: 15px;
     border-radius: 10px;
     margin-top: 5px;
+}
+
+#red-flag .form-class {
+    margin-bottom: 5px;
+    color: #555555;
 }
 
 
