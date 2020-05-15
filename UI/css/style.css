@@ -418,6 +418,7 @@ td {
     margin-left: 20px;
     padding: 10px;
     margin-top: 20px;
+    width: 300px;
 }
 
 #profile .container .inner-content .unresolved-status {
@@ -426,6 +427,7 @@ td {
     color: #ffffff;
     margin-top: 20px;
     margin-left: 20px;
+    width: 300px;
 }
 
 aside {
