@@ -355,7 +355,7 @@ td {
 }
 
 #delete-incidence {
-    height: 80vh;
+    height: 70vh;
     position: relative;
     text-align: center;
     margin-top: 30px;
@@ -371,6 +371,73 @@ td {
 #delete-incidence a:hover {
     background-color: #ee8a8a;
 }
+
+
+/* View Incidence */
+
+#view-incidence {
+    height: 70vh;
+    position: relative;
+    text-align: center;
+    margin-top: 30px;
+}
+
+#view-incidence a {
+    text-decoration: none;
+    background-color: #2403b6;
+    padding: 10px;
+    color: white;
+}
+
+
+/* User Profile */
+
+#profile {
+    height: 70vh;
+    margin-top: 20px;
+    text-align: center;
+    position: relative;
+}
+
+#profile .container .inner-content {
+    display: flex;
+    justify-content: space-around;
+}
+
+#profile .container .inner-content article {
+    display: flex;
+    margin-left: 10px;
+    justify-content: space-between;
+    color: #ffffff;
+    font-size: 16px;
+    align-items: center;
+}
+
+#profile .container .inner-content article .status {
+    background-color: #454ade;
+    margin-left: 20px;
+    padding: 10px;
+    margin-top: 20px;
+    width: 300px;
+}
+
+#profile .container .inner-content .unresolved-status {
+    background-color: #da0e30;
+    padding: 10px;
+    color: #ffffff;
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 300px;
+}
+
+aside {
+    margin-top: 40px;
+}
+
+
+/* #profile .container .inner-content article .status {
+    padding-right: 20px;
+} */
 
 
 /* footer */
