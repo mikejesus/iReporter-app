@@ -9,7 +9,7 @@
     <meta name="author" content="Michael Sunday Olawuni">
     <link rel="stylesheet" href="./css/style.css">
 
-    <title>iReporter - Sign Up</title>
+    <title>iReporter - Create Intervention</title>
 </head>
 
 <body>
@@ -18,13 +18,13 @@
 
         <div class="container">
             <div id="brand">
-                <h1><a href="#">iReporter</a></h1>
+                <h1><a href="index.html">iReporter</a></h1>
             </div>
 
             <nav>
                 <ul>
-                    <li class="current"><a href="index.html">Home</a></li>
-                    <li><a href="./admin.html">Admin</a></li>
+                    <li class="current"><a href="./signin.html">Sign In</a></li>
+                    <li><a href="./signup.html">Sign Up</a></li>
 
                 </ul>
             </nav>
@@ -34,34 +34,46 @@
     <!--End of Header Section -->
 
     <main>
-        <section id="signup">
+        <section id="intervention">
             <div class="container">
-                <h1>Create Account</h1>
+                <h1>Intervention Report</h1>
                 <form id="myform">
                     <div class="form-class">
-                        <input type="text" placeholder="Enter First Name">
+
+                        <input type="text" placeholder="Subject of Intervention Needed">
                     </div>
 
                     <div class="form-class">
-                        <input type="text" placeholder="Enter Last Name">
+
+                        <input type="text" placeholder="Where the Intervention is Needed">
                     </div>
 
                     <div class="form-class">
-                        <input type="email" placeholder="Enter Email Address">
+
+                        <textarea col="2" row="5" placeholder="Describe the type of intervention needed (e.g new bridge, new road network, etc)"></textarea>
+                    </div>
+
+
+
+                    <div class="form-class">
+
+                        <input type="text" placeholder="Date of occurence">
                     </div>
 
                     <div class="form-class">
-                        <input type="phone" placeholder="Enter Phone Number">
+                        <label>Attach Video </label><input type="file">
                     </div>
 
                     <div class="form-class">
-                        <input type="password" placeholder="Enter Password">
-                    </div>
-                    <div class="form-class">
-                        <input type="password" placeholder="Confirm Password">
+                        <label>Enter Geolocation coordinates</label><br>
+                        <input type="text" class="geolocation" placeholder="Longitude here"><br>
+                        <input type="text" class="geolocation" placeholder="Latitude here">
                     </div>
 
-                    <button type="submit">Sign Up</button>
+                    <div class="form-class">
+                        <p><input type="checkbox" name="agreement">I affirm that I'm supplying a genuine information.</p>
+                        <button type="submit">Intervention Report</button>
+                    </div>
                 </form>
             </div>
         </section>
