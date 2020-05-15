@@ -355,7 +355,7 @@ td {
 }
 
 #delete-incidence {
-    height: 80vh;
+    height: 70vh;
     position: relative;
     text-align: center;
     margin-top: 30px;
@@ -370,6 +370,16 @@ td {
 
 #delete-incidence a:hover {
     background-color: #ee8a8a;
+}
+
+
+/*  */
+
+#view-incidence {
+    height: 70vh;
+    position: relative;
+    text-align: center;
+    margin-top: 30px;
 }
 
 #view-incidence a {
