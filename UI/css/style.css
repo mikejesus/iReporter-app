@@ -444,9 +444,14 @@ aside {
 }
 
 
-/* #profile .container .inner-content article .status {
-    padding-right: 20px;
-} */
+/* Admin */
+
+#admin {
+    height: 70vh;
+    margin-top: 20px;
+    text-align: center;
+    position: relative;
+}
 
 
 /* footer */
