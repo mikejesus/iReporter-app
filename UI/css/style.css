@@ -372,6 +372,13 @@ td {
     background-color: #ee8a8a;
 }
 
+#view-incidence a {
+    text-decoration: none;
+    background-color: #2403b6;
+    padding: 10px;
+    color: white;
+}
+
 
 /* footer */
 
