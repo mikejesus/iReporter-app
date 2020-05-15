@@ -410,6 +410,7 @@ td {
     justify-content: space-between;
     color: #ffffff;
     font-size: 16px;
+    align-items: center;
 }
 
 #profile .container .inner-content article .status {
@@ -419,10 +420,16 @@ td {
     margin-top: 20px;
 }
 
+#profile .container .inner-content .unresolved-status {
+    background-color: #da0e30;
+    padding: 10px;
+    color: #ffffff;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
 aside {
-    position: absolute;
-    top: 0;
-    left: 100px;
+    margin-top: 40px;
 }
 
 
