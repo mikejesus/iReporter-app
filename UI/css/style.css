@@ -347,6 +347,32 @@ textarea,
 }
 
 
+/* delete records */
+
+table,
+td {
+    text-align: left;
+}
+
+#delete-incidence {
+    height: 80vh;
+    position: relative;
+    text-align: center;
+    margin-top: 30px;
+}
+
+#delete-incidence a {
+    text-decoration: none;
+    background-color: #aa0000;
+    padding: 10px;
+    color: white;
+}
+
+#delete-incidence a:hover {
+    background-color: #ee8a8a;
+}
+
+
 /* footer */
 
 footer {
