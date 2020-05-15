@@ -430,6 +430,15 @@ td {
     width: 300px;
 }
 
+#profile .container .inner-content .entries {
+    background-color: #1d8508d5;
+    padding: 10px;
+    color: #ffffff;
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 300px;
+}
+
 aside {
     margin-top: 40px;
 }
