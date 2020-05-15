@@ -243,7 +243,8 @@ button:hover {
     display: flex;
     align-items: center;
     text-align: center;
-    height: 80vh;
+    height: 100vh;
+    position: relative;
 }
 
 #red-flag h1 {
@@ -255,7 +256,8 @@ button:hover {
 textarea,
 #red-flag input[type="date"],
 #red-flag input[type="email"],
-#red-flag input[type="password"] {
+#red-flag input[type="password"],
+#red-flag file {
     width: 350px;
     height: 40px;
     margin-bottom: 5px;
@@ -273,6 +275,10 @@ textarea,
     padding-top: 5px;
 }
 
+#red-flag label {
+    color: #555555;
+}
+
 #red-flag button {
     width: 350px;
     background-color: rgb(53, 45, 218);
@@ -281,6 +287,89 @@ textarea,
     padding: 15px;
     border-radius: 10px;
     margin-top: 5px;
+}
+
+.form-class {
+    margin-bottom: 5px;
+    color: #555555;
+}
+
+
+/* Intervention */
+
+#intervention {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    position: relative;
+}
+
+#intervention h1 {
+    color: #555555;
+    margin-bottom: 10px;
+}
+
+#intervention input[type="text"],
+textarea,
+#intervention input[type="date"],
+#intervention input[type="email"],
+#intervention input[type="password"] {
+    width: 350px;
+    height: 40px;
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-family: "PT Sans", sans-serif;
+    outline: none;
+    border: 1px solid rgb(204, 204, 204);
+    border-image: initial;
+    border-radius: 4px;
+    padding: 0px 10px;
+}
+
+#intervention textarea {
+    height: 80px;
+    padding-top: 5px;
+}
+
+#intervention button {
+    width: 350px;
+    background-color: rgb(53, 45, 218);
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
+#intervention .geolocation {
+    width: 100px;
+}
+
+
+/* delete records */
+
+table,
+td {
+    text-align: left;
+}
+
+#delete-incidence {
+    height: 80vh;
+    position: relative;
+    text-align: center;
+    margin-top: 30px;
+}
+
+#delete-incidence a {
+    text-decoration: none;
+    background-color: #aa0000;
+    padding: 10px;
+    color: white;
+}
+
+#delete-incidence a:hover {
+    background-color: #ee8a8a;
 }
 
 
