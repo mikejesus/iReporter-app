@@ -373,7 +373,7 @@ td {
 }
 
 
-/*  */
+/* View Incidence */
 
 #view-incidence {
     height: 70vh;
@@ -388,6 +388,35 @@ td {
     padding: 10px;
     color: white;
 }
+
+
+/* User Profile */
+
+#profile {
+    height: 70vh;
+    margin-top: 20px;
+    text-align: center;
+}
+
+#profile .container .inner-content {
+    display: flex;
+    justify-content: space-around;
+}
+
+#profile .container .inner-content article {
+    display: flex;
+    background-color: #454ade;
+    padding: 10px;
+    margin-left: 10px;
+    justify-content: space-between;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+
+/* #profile .container .inner-content article .status {
+    padding-right: 20px;
+} */
 
 
 /* footer */
