@@ -119,23 +119,23 @@ app.patch('/api/v1/red-flags/:id/:location', (req, res) => {
         });
     }
 
-    if (!req.body.title) {
-        return res.status(400).send({
-            status: 400,
-            error: 'Title Cannot be empty',
-        });
+    // if (!req.body.title) {
+    //     return res.status(400).send({
+    //         status: 400,
+    //         error: 'Title Cannot be empty',
+    //     });
 
-    } else if (!req.body.description) {
-        return res.status(400).send({
-            status: false,
-            error: 'Descriptin cannot be empty',
-        });
-    } else if (!req.body.createdBy) {
-        return res.status(400).send({
-            status: 400,
-            error: 'User cannot be empty',
-        });
-    }
+    // } else if (!req.body.description) {
+    //     return res.status(400).send({
+    //         status: false,
+    //         error: 'Descriptin cannot be empty',
+    //     });
+    // } else if (!req.body.createdBy) {
+    //     return res.status(400).send({
+    //         status: 400,
+    //         error: 'User cannot be empty',
+    //     });
+    // }
 
     const newRedFlag = {
         id: redFlagFound.id,
