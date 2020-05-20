@@ -60,7 +60,7 @@ app.post('/api/v1/red-flags', (req, res) => {
 
     return res.status(201).send({
         status: 201,
-        data: [{ incidence }],
+        data: [incidence],
     });
 });
 
@@ -69,9 +69,26 @@ app.post('/api/v1/red-flags', (req, res) => {
 app.get('/api/v1/red-flags', (req, res) => {
     return res.status(200).send({
         status: 200,
-        data: [{ incidence: incidences }],
+        data: incidences,
     });
 });
+
+//Endpoint for getting a specific red flag
+app.get('/api/v1/red-flags/:id', (req, res) => {
+    const id = parseInt(req.params.id);
+    incidences.map((redFlag) => {
+        if (redFlag.id === id) {
+            return res.status(200).send({
+                status: 200,
+                data: [redFlag],
+            });
+        }
+        return res.status(404).send({
+            status: 404,
+            error: "red-flag does not exists",
+        });
+    });
+})
 
 
 
