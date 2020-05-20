@@ -219,7 +219,35 @@ app.put('/api/v1/red-flags/:id/:comment', (req, res) => {
     });
 });
 
+//Endpoint of deletion of a specific red flag
+app.delete('/api/v1/red-flags/:id', (req, res) => {
+    const id = parseInt(req.params.id);
+    let redFlagFound;
+    let itemIndex;
 
+    incidences.map((redFlag, index) => {
+        if (redFlag.id === id) {
+            redFlagFound = redFlag;
+            itemIndex = index;
+        }
+    });
+
+    if (!redFlagFound) {
+        return res.status(404).send({
+            status: 404,
+            error: 'Red-flag does not exists',
+        });
+    }
+    incidences.splice(itemIndex, 1);
+
+    return res.status(200).send({
+        status: 200,
+        data: [{
+            id: redFlagFound.id,
+            message: "red-flag record has been deleted"
+        }],
+    });
+});
 
 //Set Port
 const PORT = 5000;
