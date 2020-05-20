@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 //Endpoint for Creating a red-flag
-app.post('/api/v1/red-flag', (req, res) => {
+app.post('/api/v1/red-flags', (req, res) => {
     //Validation for empty fields
     if (!req.body.createdBy) {
         return res.status(400).send({
@@ -29,18 +29,30 @@ app.post('/api/v1/red-flag', (req, res) => {
             status: 400,
             error: 'Comment field cannot be empty',
         });
+    } else if (!req.body.title) {
+        return res.status(400).send({
+            status: 400,
+            error: 'Title field cannot be empty',
+        });
+    } else if (!req.body.description) {
+        return res.status(400).send({
+            status: 400,
+            error: 'description field cannot be empty',
+        });
     }
 
     const incidence = {
         id: incidences.length + 1,
+        title: req.body.title,
+        description: req.body.description,
         createdOn: new Date(),
         createdBy: req.body.createdBy,
         location: req.body.location,
         type: "red-flag",
         status: "draft",
-        Images: req.body.Images,
-        Videos: req.body.Videos,
-        comment: req.body.comment
+        Images: [],
+        Videos: [],
+        comment: "Red Flag Records received"
     };
 
     //Created new red-flag
@@ -51,6 +63,7 @@ app.post('/api/v1/red-flag', (req, res) => {
         data: [{ incidence }],
     });
 });
+
 
 
 
