@@ -4,7 +4,7 @@
     "description": "node express backend for ireporter",
     "main": "app.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "test": "mocha --require @babel/register 'test/**/**spec.js'",
         "start": "nodemon --exec babel-node app.js"
     },
     "keywords": [
@@ -22,8 +22,11 @@
         "@babel/core": "^7.9.6",
         "@babel/node": "^7.8.7",
         "@babel/preset-env": "^7.9.6",
+        "chai": "^4.2.0",
+        "chai-http": "^4.3.0",
         "eslint": "^5.16.0",
         "eslint-config-airbnb-base": "^14.1.0",
-        "eslint-plugin-import": "^2.20.2"
+        "eslint-plugin-import": "^2.20.2",
+        "mocha": "^7.1.2"
     }
 }

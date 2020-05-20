@@ -76,18 +76,26 @@ app.get('/api/v1/red-flags', (req, res) => {
 //Endpoint for getting a specific red flag
 app.get('/api/v1/red-flags/:id', (req, res) => {
     const id = parseInt(req.params.id);
+    let found;
+    let data = [];
     incidences.map((redFlag) => {
         if (redFlag.id === id) {
-            return res.status(200).send({
-                status: 200,
-                data: [redFlag],
-            });
+            found = true;
+            data.push(redFlag);
         }
+    });
+
+    if (found) {
+        return res.status(200).send({
+            status: 200,
+            data: data,
+        });
+    } else {
         return res.status(404).send({
             status: 404,
             error: "red-flag does not exists",
         });
-    });
+    }
 })
 
 //Endpoint for editing location of a specific red flag
@@ -253,6 +261,7 @@ app.delete('/api/v1/red-flags/:id', (req, res) => {
 const PORT = 5000;
 
 //Start server
-app.listen(PORT, () => {
+
+export default app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
