@@ -65,6 +65,14 @@ app.post('/api/v1/red-flags', (req, res) => {
 });
 
 
+//Endpoint for Getting all red-flag
+app.get('/api/v1/red-flags', (req, res) => {
+    return res.status(200).send({
+        status: 200,
+        data: [{ incidence: incidences }],
+    });
+});
+
 
 
 //Set Port
