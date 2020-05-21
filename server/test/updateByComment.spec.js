@@ -15,10 +15,10 @@ const redFlag = {
     comment: "Red-flag record"
 };
 
-describe('/PATCH Edit red-flag record by location', () => {
+describe('/PUT Edit red-flag record by comment', () => {
     it('should return a success status 201', (done) => {
         chai.request(server)
-            .patch('/api/v1/red-flags/1/"23344, 2345"')
+            .put('/api/v1/red-flags/1/"newcomment"')
             .send([redFlag])
             .end((err, res) => {
                 res.should.have.status(201);
@@ -28,7 +28,7 @@ describe('/PATCH Edit red-flag record by location', () => {
 
     it('It should return 404 error if red-flag record is not found', (done) => {
         chai.request(server)
-            .patch('/api/v1/red-flags/6/"2003,88993"')
+            .put('/api/v1/red-flags/6/"newcomment"')
             .send([redFlag])
             .end((err, res) => {
                 res.should.have.status(404);
@@ -38,7 +38,7 @@ describe('/PATCH Edit red-flag record by location', () => {
 
     it('It should return the specified error message', (done) => {
         chai.request(server)
-            .patch('/api/v1/red-flags/6/"2003,88993"')
+            .put('/api/v1/red-flags/6/"newcomment"')
             .send([redFlag])
             .end((err, res) => {
                 res.body.should.be.deep.equal({
