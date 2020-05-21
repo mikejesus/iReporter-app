@@ -76,24 +76,32 @@ app.get('/api/v1/red-flags', (req, res) => {
 //Endpoint for getting a specific red flag
 app.get('/api/v1/red-flags/:id', (req, res) => {
     const id = parseInt(req.params.id);
+    let found;
+    let data = [];
     incidences.map((redFlag) => {
         if (redFlag.id === id) {
-            return res.status(200).send({
-                status: 200,
-                data: [redFlag],
-            });
+            found = true;
+            data.push(redFlag);
         }
+    });
+
+    if (found) {
+        return res.status(200).send({
+            status: 200,
+            data: data,
+        });
+    } else {
         return res.status(404).send({
             status: 404,
             error: "red-flag does not exists",
         });
-    });
+    }
 })
 
 //Endpoint for editing location of a specific red flag
 app.patch('/api/v1/red-flags/:id/:location', (req, res) => {
     const id = parseInt(req.params.id, 10);
-    const location = req.params.location;
+    const location = req.body.location;
     let redFlagFound;
     let itemIndex;
 
@@ -111,36 +119,36 @@ app.patch('/api/v1/red-flags/:id/:location', (req, res) => {
         });
     }
 
-    if (!req.body.title) {
-        return res.status(400).send({
-            status: 400,
-            error: 'Title Cannot be empty',
-        });
+    // if (!req.body.title) {
+    //     return res.status(400).send({
+    //         status: 400,
+    //         error: 'Title Cannot be empty',
+    //     });
 
-    } else if (!req.body.description) {
-        return res.status(400).send({
-            status: false,
-            error: 'Descriptin cannot be empty',
-        });
-    } else if (!req.body.createdBy) {
-        return res.status(400).send({
-            status: 400,
-            error: 'User cannot be empty',
-        });
-    }
+    // } else if (!req.body.description) {
+    //     return res.status(400).send({
+    //         status: false,
+    //         error: 'Descriptin cannot be empty',
+    //     });
+    // } else if (!req.body.createdBy) {
+    //     return res.status(400).send({
+    //         status: 400,
+    //         error: 'User cannot be empty',
+    //     });
+    // }
 
     const newRedFlag = {
         id: redFlagFound.id,
         title: req.body.title || redFlagFound.title,
         description: req.body.descripton || redFlagFound.description,
         createdOn: new Date(),
-        createdBy: req.body.createdBy,
-        location: req.body.location || location,
+        createdBy: req.body.createdBy || redFlagFound.createdBy,
+        location: location,
         type: "red-flag",
         status: "draft",
         Images: [],
         Videos: [],
-        comment: "Red Flag Records received"
+        comment: redFlagFound.comment
     }
 
     incidences.splice(itemIndex, 1, newRedFlag);
@@ -156,9 +164,9 @@ app.patch('/api/v1/red-flags/:id/:location', (req, res) => {
 
 
 //Endpoint for editing comment of a specific red flag
-app.put('/api/v1/red-flags/:id/:comment', (req, res) => {
+app.patch('/api/v1/red-flags/:id/:comment', (req, res) => {
     const id = parseInt(req.params.id, 10);
-    const comment = req.params.comment;
+    const comment = req.body.comment;
     let redFlagFound;
     let itemIndex;
 
@@ -176,31 +184,31 @@ app.put('/api/v1/red-flags/:id/:comment', (req, res) => {
         });
     }
 
-    if (!req.body.title) {
-        return res.status(400).send({
-            status: 400,
-            error: 'Title Cannot be empty',
-        });
+    // if (!req.body.title) {
+    //     return res.status(400).send({
+    //         status: 400,
+    //         error: 'Title Cannot be empty',
+    //     });
 
-    } else if (!req.body.description) {
-        return res.status(400).send({
-            status: false,
-            error: 'Descriptin cannot be empty',
-        });
-    } else if (!req.body.createdBy) {
-        return res.status(400).send({
-            status: 400,
-            error: 'User cannot be empty',
-        });
-    }
+    // } else if (!req.body.description) {
+    //     return res.status(400).send({
+    //         status: false,
+    //         error: 'Descriptin cannot be empty',
+    //     });
+    // } else if (!req.body.createdBy) {
+    //     return res.status(400).send({
+    //         status: 400,
+    //         error: 'User cannot be empty',
+    //     });
+    // }
 
     const newRedFlag = {
         id: redFlagFound.id,
         title: req.body.title || redFlagFound.title,
         description: req.body.descripton || redFlagFound.description,
         createdOn: new Date(),
-        createdBy: req.body.createdBy,
-        location: req.body.location || location,
+        createdBy: req.body.createdBy || redFlagFound.createdBy,
+        location: req.body.location || redFlagFound.description,
         type: "red-flag",
         status: "draft",
         Images: [],
@@ -253,6 +261,7 @@ app.delete('/api/v1/red-flags/:id', (req, res) => {
 const PORT = 5000;
 
 //Start server
-app.listen(PORT, () => {
+
+export default app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
