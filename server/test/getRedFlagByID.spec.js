@@ -11,7 +11,7 @@ chai.use(chaiHttp);
 describe('GET /api/v1/red-flags/:id', () => {
     it('should get matching red-flag record', (done) => {
         chai.request(server)
-            .get('/api/v1/red-flags/1')
+            .get('/api/v1/red-flags/2')
             .end((err, res) => {
                 res.should.have.status(200);
                 done();

@@ -101,7 +101,7 @@ app.get('/api/v1/red-flags/:id', (req, res) => {
 //Endpoint for editing location of a specific red flag
 app.patch('/api/v1/red-flags/:id/:location', (req, res) => {
     const id = parseInt(req.params.id, 10);
-    const location = req.params.location;
+    const location = req.body.location;
     let redFlagFound;
     let itemIndex;
 
@@ -142,13 +142,13 @@ app.patch('/api/v1/red-flags/:id/:location', (req, res) => {
         title: req.body.title || redFlagFound.title,
         description: req.body.descripton || redFlagFound.description,
         createdOn: new Date(),
-        createdBy: req.body.createdBy,
-        location: req.body.location || location,
+        createdBy: req.body.createdBy || redFlagFound.createdBy,
+        location: location,
         type: "red-flag",
         status: "draft",
         Images: [],
         Videos: [],
-        comment: "Red Flag Records received"
+        comment: redFlagFound.comment
     }
 
     incidences.splice(itemIndex, 1, newRedFlag);
@@ -164,9 +164,9 @@ app.patch('/api/v1/red-flags/:id/:location', (req, res) => {
 
 
 //Endpoint for editing comment of a specific red flag
-app.put('/api/v1/red-flags/:id/:comment', (req, res) => {
+app.patch('/api/v1/red-flags/:id/:comment', (req, res) => {
     const id = parseInt(req.params.id, 10);
-    const comment = req.params.comment;
+    const comment = req.body.comment;
     let redFlagFound;
     let itemIndex;
 
@@ -207,8 +207,8 @@ app.put('/api/v1/red-flags/:id/:comment', (req, res) => {
         title: req.body.title || redFlagFound.title,
         description: req.body.descripton || redFlagFound.description,
         createdOn: new Date(),
-        createdBy: req.body.createdBy,
-        location: req.body.location || location,
+        createdBy: req.body.createdBy || redFlagFound.createdBy,
+        location: req.body.location || redFlagFound.description,
         type: "red-flag",
         status: "draft",
         Images: [],
