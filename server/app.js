@@ -99,72 +99,77 @@ app.get('/api/v1/red-flags/:id', (req, res) => {
 })
 
 //Endpoint for editing location of a specific red flag
-app.patch('/api/v1/red-flags/:id/:location', (req, res) => {
-    const id = parseInt(req.params.id, 10);
-    const location = req.body.location;
-    let redFlagFound;
-    let itemIndex;
+app.patch('/api/v1/red-flags/:id/:location', (req, res, next) => {
+    if (req.params.location === "location") {
+        const id = parseInt(req.params.id, 10);
+        const location = req.body.location;
+        let redFlagFound;
+        let itemIndex;
 
-    incidences.map((redFlag, index) => {
-        if (redFlag.id === id) {
-            redFlagFound = redFlag;
-            itemIndex = index;
-        }
-    });
-
-    if (!redFlagFound) {
-        return res.status(404).send({
-            status: 404,
-            error: 'red flag record not found',
+        incidences.map((redFlag, index) => {
+            if (redFlag.id === id) {
+                redFlagFound = redFlag;
+                itemIndex = index;
+            }
         });
-    }
 
-    // if (!req.body.title) {
-    //     return res.status(400).send({
-    //         status: 400,
-    //         error: 'Title Cannot be empty',
-    //     });
+        if (!redFlagFound) {
+            return res.status(404).send({
+                status: 404,
+                error: 'red flag record not found',
+            });
+        }
 
-    // } else if (!req.body.description) {
-    //     return res.status(400).send({
-    //         status: false,
-    //         error: 'Descriptin cannot be empty',
-    //     });
-    // } else if (!req.body.createdBy) {
-    //     return res.status(400).send({
-    //         status: 400,
-    //         error: 'User cannot be empty',
-    //     });
-    // }
+        // if (!req.body.title) {
+        //     return res.status(400).send({
+        //         status: 400,
+        //         error: 'Title Cannot be empty',
+        //     });
 
-    const newRedFlag = {
-        id: redFlagFound.id,
-        title: req.body.title || redFlagFound.title,
-        description: req.body.descripton || redFlagFound.description,
-        createdOn: new Date(),
-        createdBy: req.body.createdBy || redFlagFound.createdBy,
-        location: location,
-        type: "red-flag",
-        status: "draft",
-        Images: [],
-        Videos: [],
-        comment: redFlagFound.comment
-    }
+        // } else if (!req.body.description) {
+        //     return res.status(400).send({
+        //         status: false,
+        //         error: 'Descriptin cannot be empty',
+        //     });
+        // } else if (!req.body.createdBy) {
+        //     return res.status(400).send({
+        //         status: 400,
+        //         error: 'User cannot be empty',
+        //     });
+        // }
 
-    incidences.splice(itemIndex, 1, newRedFlag);
-
-    return res.status(201).send({
-        status: 201,
-        data: [{
+        const newRedFlag = {
             id: redFlagFound.id,
-            message: 'Updated red-flag record’s location',
-        }]
-    });
+            title: req.body.title || redFlagFound.title,
+            description: req.body.descripton || redFlagFound.description,
+            createdOn: new Date(),
+            createdBy: req.body.createdBy || redFlagFound.createdBy,
+            location: location,
+            type: "red-flag",
+            status: "draft",
+            Images: [],
+            Videos: [],
+            comment: redFlagFound.comment
+        }
+
+        incidences.splice(itemIndex, 1, newRedFlag);
+
+        return res.status(201).send({
+            status: 201,
+            data: [{
+                id: redFlagFound.id,
+                message: 'Updated red-flag record’s location',
+            }]
+        });
+    } else {
+        next();
+    }
 });
 
 
 //Endpoint for editing comment of a specific red flag
 app.patch('/api/v1/red-flags/:id/:comment', (req, res) => {
+
     const id = parseInt(req.params.id, 10);
     const comment = req.body.comment;
     let redFlagFound;
@@ -208,11 +213,11 @@ app.patch('/api/v1/red-flags/:id/:comment', (req, res) => {
         description: req.body.descripton || redFlagFound.description,
         createdOn: new Date(),
         createdBy: req.body.createdBy || redFlagFound.createdBy,
-        location: req.body.location || redFlagFound.description,
-        type: "red-flag",
-        status: "draft",
-        Images: [],
-        Videos: [],
+        location: req.body.location || redFlagFound.location,
+        type: "red-flag" || redFlagFound.type,
+        status: "draft" || redFlagFound.status,
+        Images: [] || redFlagFound.Images,
+        Videos: [] || redFlagFound.Videos,
         comment: comment
     }
 
@@ -225,6 +230,7 @@ app.patch('/api/v1/red-flags/:id/:comment', (req, res) => {
             message: 'Updated red-flag record’s comment',
         }]
     });
+
 });
 
 //Endpoint of deletion of a specific red flag
