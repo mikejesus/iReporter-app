@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/mikejesus/iReporter-app.svg?branch=develop)](https://travis-ci.org/mikejesus/iReporter-app)
+
 # iReporter-app
 iReporter app helps citizen of a country to report incidents to authorities involved. 
 
