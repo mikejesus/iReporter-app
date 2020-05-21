@@ -12,3 +12,6 @@ script:
  
 before_install:
   - cd server
+
+after_success: 
+  - npm run coverage
