@@ -17,7 +17,7 @@ app.post('/api/v1/red-flags', (req, res) => {
     if (!req.body.createdBy) {
         return res.status(400).send({
             status: 400,
-            error: 'User cannot be empty',
+            error: 'The User cannot be empty',
         });
     } else if (!req.body.location) {
         return res.status(400).send({
