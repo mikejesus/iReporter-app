@@ -9,7 +9,7 @@ cache:
   
 script:
   - npm test
-  - npm coveralls
+  - npm run coveralls
   
 before_install:
   - cd server
