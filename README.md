@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/mikejesus/iReporter-app.svg?branch=develop)](https://travis-ci.org/mikejesus/iReporter-app)
+
 # iReporter-app
 
 [![Coverage Status](https://coveralls.io/repos/https://github.com/mikejesus/iReporter-app/badge.svg?branch=master)](https://coveralls.io/r/https://github.com/mikejesus/iReporter-app?branch=master)
