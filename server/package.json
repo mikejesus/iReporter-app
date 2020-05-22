@@ -7,7 +7,7 @@
         "test": "nyc mocha --require @babel/register 'test/**/**spec.js'",
         "start": "nodemon --exec babel-node app.js",
         "coveralls": "npm run coverage --report --reporter=text-lcov",
-        "coverage": "nyc npm test"
+        "coverage": "nyc report --reporter=text-lcov | coveralls"
     },
     "keywords": [
         "node",
