@@ -4,6 +4,7 @@
     "description": "node express backend for ireporter",
     "main": "app.js",
     "scripts": {
+        "heroku-postbuild": "npm install",
         "test": "nyc mocha --require @babel/register 'test/**/**spec.js'",
         "start": "nodemon --exec babel-node app.js",
         "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls"
