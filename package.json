@@ -4,9 +4,10 @@
     "description": "node express backend for ireporter",
     "main": "app.js",
     "scripts": {
-        "test": "nyc mocha --require @babel/register 'test/**/**spec.js'",
-        "start": "nodemon --exec babel-node app.js",
-        "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls"
+        "prestart": "babel ./server --out-dir build",
+        "start": "nodemon ./server/build/app.js  --exec babel-node",
+        "test": "nyc --reporter=html --reporter=text --reporter=lcov mocha -r @babel/register",
+        "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls"
     },
     "keywords": [
         "node",
@@ -22,6 +23,7 @@
     "devDependencies": {
         "@babel/core": "^7.9.6",
         "@babel/node": "^7.8.7",
+        "@babel/plugin-transform-runtime": "^7.10.1",
         "@babel/preset-env": "^7.9.6",
         "chai": "^4.2.0",
         "chai-http": "^4.3.0",
@@ -31,6 +33,7 @@
         "eslint-plugin-import": "^2.20.2",
         "mocha": "^7.1.2",
         "mocha-lcov-reporter": "^1.3.0",
+        "nodemon": "^2.0.4",
         "nyc": "^15.0.1"
     },
     "engines": {

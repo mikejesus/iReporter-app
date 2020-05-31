@@ -28,4 +28,4 @@ const incidence = [{
 
 ]
 
-export default incidence;
+export default incidence
