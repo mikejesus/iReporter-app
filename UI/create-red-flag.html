@@ -41,35 +41,41 @@
                 <form id="myform">
                     <div class="form-class">
 
-                        <input type="text" placeholder="Subject of Record">
+                        <input type="text" id="title" placeholder="Subject of Record">
                     </div>
+
+                    <!-- <div class="form-class">
+
+                        <input type="text" id="title" placeholder="Where the Case Occured">
+                    </div> -->
 
                     <div class="form-class">
 
-                        <input type="text" placeholder="Where the Case Occured">
+                        <textarea col="2" row="5" id="description" placeholder="Write the Incidence here"></textarea>
+                    </div>
+
+                    <!-- <div class="form-class">
+                        <input type="text"  id=" placeholder="Date of occurence">
+                    </div> -->
+
+                    <div class="form-class">
+                        <label>Attach Videos</label>
+                        <input type="file" placeholder="Upload Video" id="Videos">
                     </div>
 
                     <div class="form-class">
-
-                        <textarea col="2" row="5" placeholder="Write the Incidence here"></textarea>
-                    </div>
-
-                    <div class="form-class">
-                        <input type="text" placeholder="Date of occurence">
-                    </div>
-
-                    <div class="form-class">
-                        <label>Attach Video</label></label><input type="file" placeholder="Upload Video">
+                        <label>Attach Images</label>
+                        <input type="file" placeholder="Upload Video" id="Images">
                     </div>
 
                     <div class="form-class">
                         <label>Geolocation coordinates</label><br>
-                        <input type="text" class="geolocation" placeholder="Longitude here"><br>
-                        <input type="text" class="geolocation" placeholder="Latitude here">
+                        <input type="text" id="location1" class="geolocation" placeholder="Longitude here"><br>
+                        <input type="text" id="location2" class="geolocation" placeholder="Latitude here">
                     </div>
                     <div class="form-class">
                         <p><input type="checkbox" name="agreement">I affirm that I'm supplying a genuine information.</p>
-                        <button type="submit">Create Record</button>
+                        <input type="submit" id="btnSubmit" value="Create Record" onclick="">
                     </div>
                 </form>
             </div>
@@ -81,6 +87,47 @@
 
         <p>iReporter. Copyright &copy; 2020 by Michael S. Olawuni</p>
     </footer>
+
+    <script>
+        const title = document.getElementById('title').value;
+        const description = document.getElementById('description').value;
+        const videos = document.getElementById('Videos').value;
+        const images = document.getElementById('Images').value;
+        const location1 = document.getElementById('location1').value;
+        const location2 = document.getElementById('location2').value;
+
+        document.getElementById('btnSubmit').addEventListener("click", postData);
+
+        function postData(e) {
+            e.preventDefault();
+
+            let data = {
+                title,
+                description,
+                videos,
+                images,
+                location: `${location1}, ${location2}`
+            }
+
+
+            fetch("http://localhost:5000/api/v1/red-flags", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(res => res.json())
+                .then(response => {
+
+                    console.log(response);
+
+                }).catch(err => {
+                    alert(`<h1>Error!!!</h1>`)
+                })
+
+        }
+    </script>
 </body>
 
 </html>

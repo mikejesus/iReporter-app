@@ -11,15 +11,18 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
+    next();
+})
+
 //Endpoint for Creating a red-flag
 app.post('/api/v1/red-flags', (req, res) => {
     //Validation for empty fields
-    if (!req.body.createdBy) {
-        return res.status(400).send({
-            status: 400,
-            error: 'The User cannot be empty',
-        });
-    } else if (!req.body.location) {
+    if (!req.body.location) {
         return res.status(400).send({
             status: 400,
             error: 'Locations cannot be empty',

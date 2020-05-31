@@ -183,7 +183,7 @@ input[type="password"] {
     padding: 0 10px;
 }
 
-button {
+input[type="submit"] {
     padding: 15px;
     width: 250px;
     background-color: #352dda;
@@ -192,7 +192,7 @@ button {
     font-size: 15px;
 }
 
-button:hover {
+input[type="submit"]:hover {
     color: #cccccc;
 }
 
@@ -227,7 +227,7 @@ button:hover {
     padding: 0px 10px;
 }
 
-#signin button {
+#signin input[type="submit"] {
     width: 250px;
     background-color: rgb(53, 45, 218);
     color: rgb(255, 255, 255);
@@ -280,7 +280,7 @@ textarea,
     color: #555555;
 }
 
-#red-flag button {
+#red-flag input[type="submit"] {
     width: 350px;
     background-color: rgb(53, 45, 218);
     color: rgb(255, 255, 255);
@@ -333,7 +333,7 @@ textarea,
     padding-top: 5px;
 }
 
-#intervention button {
+#intervention input[type="submit"] {
     width: 350px;
     background-color: rgb(53, 45, 218);
     color: rgb(255, 255, 255);
