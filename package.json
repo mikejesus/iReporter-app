@@ -4,8 +4,10 @@
     "description": "node express backend for ireporter",
     "main": "app.js",
     "scripts": {
-        "prestart": "babel ./server --out-dir build",
-        "start": "nodemon ./server/build/app.js  --exec babel-node",
+        "prestarthhh": "babel ./server --out-dir build",
+        "build": "rm -rf ./build && mkdir build && babel server --out-dir build",
+        "dev": "cross-env NODE_ENV=development nodemon ./server/app.js  --exec babel-node",
+        "start": "cross-env NODE_ENV=production node ./build/app.js",
         "test": "nyc --reporter=html --reporter=text --reporter=lcov mocha -r @babel/register",
         "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls"
     },
@@ -18,9 +20,13 @@
     "author": "Michael S. Olawuni",
     "license": "ISC",
     "dependencies": {
+        "babel-loader": "^8.1.0",
+        "babel-polyfill": "^6.26.0",
+        "cross-env": "^7.0.2",
         "express": "^4.17.1"
     },
     "devDependencies": {
+        "@babel/cli": "^7.10.1",
         "@babel/core": "^7.9.6",
         "@babel/node": "^7.8.7",
         "@babel/plugin-transform-runtime": "^7.10.1",

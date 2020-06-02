@@ -22,27 +22,27 @@ app.use((req, res, next) => {
 //Endpoint for Creating a red-flag
 app.post('/api/v1/red-flags', (req, res) => {
     //Validation for empty fields
-    if (!req.body.location) {
-        return res.status(400).send({
-            status: 400,
-            error: 'Locations cannot be empty',
-        });
-    } else if (!req.body.comment) {
-        return res.status(400).send({
-            status: 400,
-            error: 'Comment field cannot be empty',
-        });
-    } else if (!req.body.title) {
-        return res.status(400).send({
-            status: 400,
-            error: 'Title field cannot be empty',
-        });
-    } else if (!req.body.description) {
-        return res.status(400).send({
-            status: 400,
-            error: 'description field cannot be empty',
-        });
-    }
+    // if (!req.body.location) {
+    //     return res.status(400).send({
+    //         status: 400,
+    //         error: 'Locations cannot be empty',
+    //     });
+    // } else if (!req.body.comment) {
+    //     return res.status(400).send({
+    //         status: 400,
+    //         error: 'Comment field cannot be empty',
+    //     });
+    // } else if (!req.body.title) {
+    //     return res.status(400).send({
+    //         status: 400,
+    //         error: 'Title field cannot be empty',
+    //     });
+    // } else if (!req.body.description) {
+    //     return res.status(400).send({
+    //         status: 400,
+    //         error: 'description field cannot be empty',
+    //     });
+    // }
 
     const incidence = {
         id: incidences.length + 1,
